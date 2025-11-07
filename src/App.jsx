@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+
 import './style.css';
 
 import searchIcon from './IMGS/search_icn.png';
@@ -8,11 +10,20 @@ import logo from './IMGS/logo.png';
 import accessibilityIcon from './IMGS/accessibilityIcon.png';
 import kk from './IMGS/kk.jpg';
 
-export default function App(){
+function App(){
+
+    const navigate=useNavigate();
     
 
     return(
         <div className='main-container'>
+            {/* Register/Login forms */}
+            <div className='authorization'>
+                <button className='reg' onClick={()=>navigate("/register")}>Register</button>
+                <button className='log' onClick={()=>navigate("/login")}>Login</button>
+            </div>
+
+
             {/* First Floor */}
             <div className='firstFloor'>
                 <h4>საიტის რუკა</h4>
@@ -36,36 +47,42 @@ export default function App(){
             </div>
 
 
-            {/* Third Floor */}
-            <div className='thirdFloor'>
-                <nav className='navbar navbar-expand-lg navbar-light bg-light w-100' >
-                    <div className='container-fluid'>
-                        {/* Icon access */}
-                        <a href="">
-                            <img src={accessibilityIcon} alt="accessibility" className='accesLogo'/>
-                        </a>
+                <div className="thirdFloor">
+                    <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
+                        <div className="container-fluid">
+                            <a href="#">
+                                <img src={accessibilityIcon} alt="accessibility" className="accesLogo" />
+                            </a>
 
-                        {/* burger icon */}
-                        <button className='navbar-toggler' type='button' data-bs-toggle="collapse" data-bs-target="#navbarNav" arial-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className='navbar-toggler-icon'></span>
-                        </button>
-                        
-                        {/* navbar links */}
-                        <div className='collapse navbar-collapse justify-content-center' id='navbarNav'>
-                            <ul>
-                                <li><a href="">სამინისტრო</a></li>
-                                <li><a href="">საზოგადოებასთან ურთიერთობა</a></li>
-                                <li><a href="">საჯარო ინფორმაცია</a></li>
-                                <li><a href="">კანონმდებლობა</a></li>
-                                <li><a href="">პროექტები</a></li>
-                                <li><a href="">ბმულები</a></li>
-                                <li><a href="">DCFTA</a></li>
-                                <li><a href="">კონტაქტი</a></li>
-                            </ul>
+                            <button
+                                className="navbar-toggler"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbarNav"
+                                aria-controls="navbarNav"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
+                            >
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
+                                <ul className="navbar-nav">
+                                    <li className="nav-item"><a className="nav-link" href="#">სამინისტრო</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="#">საზოგადოებასთან ურთიერთობა</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="#">საჯარო ინფორმაცია</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="#">კანონმდებლობა</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="#">პროექტები</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="#">ბმულები</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="#">DCFTA</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="#">კონტაქტი</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </nav> 
-            </div>
+                    </nav>
+                </div>
+
+
                     
 
 
@@ -164,7 +181,9 @@ export default function App(){
                         </div>
                             
                         <div className='left_2'>
-                            <p className='p_larger'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo ad ea repellat officia accusamus repellendus itaque, cumque ab laborum iusto quis fugiat corrupti reprehenderit nam! Aspernatur nam quod ipsa officia.</p>
+                            <p className='p_larger'>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo ad ea repellat officia accusamus repellendus itaque, cumque ab laborum iusto quis fugiat corrupti reprehenderit nam! Aspernatur nam quod ipsa officia.
+                            </p>
                             
                             <p>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia exercitationem eaque nesciunt perspiciatis ea non, veritatis nulla provident eligendi, earum nihil optio officia accusantium, saepe pariatur velit harum quibusdam assumenda.
@@ -189,8 +208,10 @@ export default function App(){
                         </div>
                             
                         <div className='left_2'>
-                            <p className='p_larger'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo ad ea repellat officia accusamus repellendus itaque, cumque ab laborum iusto quis fugiat corrupti reprehenderit nam! Aspernatur nam quod ipsa officia.</p>
-                            
+                            <p className='p_larger'>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo ad ea repellat officia accusamus repellendus itaque, cumque ab laborum iusto quis fugiat corrupti reprehenderit nam! Aspernatur nam quod ipsa officia.
+                            </p>
+
                             <p>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia exercitationem eaque nesciunt perspiciatis ea non, veritatis nulla provident eligendi, earum nihil optio officia accusantium, saepe pariatur velit harum quibusdam assumenda.
                                 Corrupti magnam consequuntur aliquam esse voluptatem in, tempore consectetur. Nesciunt hic iure corporis vero eius doloremque, fugit, rem voluptatem voluptates, quod omnis dolorum impedit laboriosam natus beatae maxime vel perspiciatis.
@@ -219,15 +240,26 @@ export default function App(){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td></tr>
+                                        <tr>
+                                            <td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td>
+                                        </tr>
                                     
-                                        <tr><td>3</td><td>4</td><td>5</td><td className="bg-success text-white rounded">6</td><td>7</td><td>8</td><td>9</td></tr>
+                                        <tr>
+                                            <td>3</td><td>4</td><td>5</td><td className="bg-success text-white rounded">6</td><td>7</td><td>8</td><td>9</td>
+                                        </tr>
                                     
-                                        <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+                                        <tr>
+                                            <td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
+                                        </tr>
                                     
-                                        <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+                                        <tr>
+                                            <td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
+                                        </tr>
                                     
-                                        <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr>
+                                        <tr>
+                                            <td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
